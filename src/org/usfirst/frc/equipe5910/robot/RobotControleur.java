@@ -2,6 +2,7 @@ package org.usfirst.frc.equipe5910.robot;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -40,6 +41,56 @@ public class RobotControleur extends IterativeRobot {
 		System.out.println("autonomousInit()");
 		if (interrupteur0.get() == true) System.out.println("Rouge");
 		else System.out.println("Bleu");
+		
+		String trajetChoisi = "";
+		if (interrupteur0.get() == true) //Rouge
+		{
+			if (interrupteur1.get() == true && interrupteur2.get() == true && interrupteur3.get() == true) //WTF
+			{
+				trajetChoisi = " ???";
+			}
+			else if (interrupteur1.get() == false && interrupteur2.get() == false && interrupteur3.get() == false) // No move
+			{
+				trajetChoisi = " No move";
+			}
+			else if (interrupteur1.get() == true) 
+			{
+				trajetChoisi = " R1";
+			}
+			else if (interrupteur2.get() == true) 
+			{
+				trajetChoisi = " R2";
+			}
+			else if (interrupteur3.get() == true) 
+			{
+				trajetChoisi = " R3";
+			}
+		}
+		else // Bleu
+		{
+			if (interrupteur1.get() == true && interrupteur2.get() == true && interrupteur3.get() == true) //WTF
+			{
+				trajetChoisi = " ???";
+			}
+			else if (interrupteur1.get() == false && interrupteur2.get() == false && interrupteur3.get() == false) // No move
+			{
+				trajetChoisi = " No move";
+			}
+			else if (interrupteur1.get() == true) 
+			{
+				trajetChoisi = " B1";
+			}
+			else if (interrupteur2.get() == true) 
+			{
+				trajetChoisi = "B2";
+			}
+			else if (interrupteur3.get() == true) 
+			{
+				trajetChoisi = " B3";	
+			}
+		}
+		SmartDashboard.putString("TRAJET CHOISI", trajetChoisi);
+		System.out.println("TRAJET CHOISI : " + trajetChoisi);		
 	}
 
 	/**
