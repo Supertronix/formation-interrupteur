@@ -1,5 +1,6 @@
 package org.usfirst.frc.equipe5910.robot;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 /**
@@ -11,6 +12,16 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  */
 public class RobotControleur extends IterativeRobot {
 
+	public static final int INTERRUPTEUR_DIGITAL_0 = 2;
+	public static final int INTERRUPTEUR_DIGITAL_1 = 3;
+	public static final int INTERRUPTEUR_DIGITAL_2 = 4;
+	public static final int INTERRUPTEUR_DIGITAL_3 = 5;	
+	
+    DigitalInput interrupteur0 = new DigitalInput(INTERRUPTEUR_DIGITAL_0);
+    DigitalInput interrupteur1 = new DigitalInput(INTERRUPTEUR_DIGITAL_1);
+    DigitalInput interrupteur2 = new DigitalInput(INTERRUPTEUR_DIGITAL_2);
+    DigitalInput interrupteur3 = new DigitalInput(INTERRUPTEUR_DIGITAL_3);	
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -27,6 +38,8 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		System.out.println("autonomousInit()");
+		if (interrupteur0.get() == true) System.out.println("Rouge");
+		else System.out.println("Bleu");
 	}
 
 	/**
